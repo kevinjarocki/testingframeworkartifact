@@ -22,12 +22,18 @@ public class AppiumAppTest {
 
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "android");
-		//capabilities.setCapability(MobileCapabilityType.APP, "C:/Users/kjarocki/Desktop/Maven/swiftnotes.apk"); // Used when testing locally
-		//capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "emulator-5554"); // 
+
+		// Used when testing locally. You have to specify where the APK is located that you want to run.
+		//capabilities.setCapability(MobileCapabilityType.APP, "C:/Users/kjarocki/Desktop/Maven/swiftnotes.apk"); 
+
+		// Used when testing locally. You have to specify which device that you want to test on. This is a Pixel 2XL AVD
+		//capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "emulator-5554"); 
+
 		capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 7913);
 		capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "uiautomator2");
 
-		URL url = new URL("http://localhost:4723/wd/hub"); // Used to connect to your Appium Client when testing locally.
+		// Used to connect to your Appium Client when testing locally.
+		URL url = new URL("http://localhost:4723/wd/hub"); 
 
 		return Factory.createAndroidDriver(url, capabilities);
 	}
